@@ -1,6 +1,4 @@
-#FROM resin/%%RESIN_MACHINE_NAME%%-debian
-#FROM resin/rpi-raspbian
-FROM resin/raspberrypi-debian:stretch
+#FROM resin/%%RESIN_MACHINE_NAME%%-raspbian
 
 ENV INITSYSTEM on
 
