@@ -1,4 +1,4 @@
-resin/raspberry-pi-debian:jessie
+FROM resin/raspberry-pi-debian:jessie
 
 ENV INITSYSTEM on
 
