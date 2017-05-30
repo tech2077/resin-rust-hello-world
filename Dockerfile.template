@@ -12,10 +12,6 @@ WORKDIR /usr/src/app
 
 RUN curl -sSf https://static.rust-lang.org/rustup.sh | sh
 
-RUN rustup default stable
-
-RUN rustup target add arm-unknown-linux-gnueabihf
-
 COPY . /usr/src/app
 
 RUN cargo build --target=arm-unknown-linux-gnueabihf
