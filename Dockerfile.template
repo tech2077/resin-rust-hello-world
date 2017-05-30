@@ -16,6 +16,6 @@ COPY . /usr/src/app
 
 RUN uname -a
 
-RUN cargo build --target=arm-unknown-linux-gnueabihf --verbose
+RUN cargo run
 
 CMD ./target/debug/resin-rust-hello-world
