@@ -3,15 +3,19 @@ FROM resin/rpi-raspbian
 ENV INITSYSTEM on
 
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
-	build-essential curl file \
+	build-essential curl file gcc-arm-linux-gnueabihf libc6-armhf-cross libc6-dev-armhf-cross \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
 
-RUN curl -sSf https://static.rust-lang.org/rustup.sh | sh
+RUN curl https://sh.rustup.rs -sSf | sh
+
+RUN rustup default stable
+
+RUN rustup target add arm-unknown-linux-gnueabihf
 
 COPY . /usr/src/app
 
-RUN cargo build --verbose --target=arm-unknown-linux-gnueabi
+RUN cargo build --target=arm-unknown-linux-gnueabihf
 
 CMD ./target/debug/resin-rust-hello-world
