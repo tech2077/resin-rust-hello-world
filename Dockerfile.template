@@ -12,6 +12,8 @@ WORKDIR /usr/src/app
 
 RUN curl -sSf https://static.rust-lang.org/rustup.sh | sh
 
+RUN ls -a
+
 COPY . /usr/src/app
 
 RUN cargo build
