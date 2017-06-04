@@ -7,5 +7,5 @@ fn main() {
     println!("Server Starting!");
     Iron::new(|_: &mut Request| {
         Ok(Response::with((status::Ok, "Hello, World!")))
-    }).http("localhost:8000").unwrap();
+    }).http("0.0.0.0:80").unwrap();
 }
